@@ -3,4 +3,5 @@ this is tony repository.
 
 luogeshibu@gmail.com
 
-sight word.
+vagrant file backup. 
+shell script backup.
