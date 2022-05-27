@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo root:1347808093Shibu | chpasswd
+#echo root:1347808093Shibu | chpasswd
 #echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
 #systemctl restart sshd
 
@@ -10,7 +10,7 @@ echo root:1347808093Shibu | chpasswd
 ###########setting oh my zsh################
 # install net-tools zsh
 apt-get update
-apt-get install -y net-tools zsh curl tree git
+apt-get install -y net-tools zsh curl tree neofetch openjdk-11-jdk maven git
 
 #setting git config
 git config --global user.name "luogeshibu"
@@ -26,6 +26,7 @@ sed -i 's/(git)/(git zsh-autosuggestions  zsh-syntax-highlighting)/g' /root/.zsh
 sed -i 's/robbyrussell/amuse/g' /root/.zshrc
 echo "export EDITOR='vim'" >> /root/.zshrc
 echo "export VISUAL='vim'" >> /root/.zshrc
+echo "neofetch" >> /root/.zshrc
 
 # change default shell from bash to zsh.
 chsh -s $(which zsh)
