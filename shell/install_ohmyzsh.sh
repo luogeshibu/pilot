@@ -1,6 +1,28 @@
 #!/bin/bash
 ###This shell script is for root user. you should have root permission.
+if [ `id -u` != "0" ]; then
+    echo "Sorry, you are not root."
+    exit 1
+fi
 
+# check your system...
+if [ $(command -v apt-get) ]; then
+  # install net-tools zsh
+  apt-get update
+  apt-get install -y net-tools zsh curl tree neofetch git
+elif
+  # install net-tools zsh
+  yum update
+  yum -y install net-tools zsh curl tree neofetch git
+else
+  echo -e " 
+  This shell script is not working on your system. (-_-) 
+
+  only support: Ubuntu 16+ / Debian 8+ / CentOS 7+ 
+  " && exit 2
+fi
+
+#apt-get -v &> /dev/null && apt-get update || yum update
 #echo root:1347808093Shibu | chpasswd
 #echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
 #systemctl restart sshd
@@ -9,11 +31,9 @@
 #sudo timedatectl set-timezone Asia/Chongqing
 
 ###########setting oh my zsh################
-# install net-tools zsh
-apt-get update
-apt-get install -y net-tools zsh curl tree neofetch git
 
-[ $? -ne 0 ] && echo "your apt source list is right or not? can not install stuff." && exit 1
+
+[ $? -ne 0 ] && echo "your linux repo setting is right or not? can not install stuff." && exit 3
 #setting git config
 #git config --global user.name "luogeshibu"
 #git config --global user.email "luogeshibu@gmail.com"
