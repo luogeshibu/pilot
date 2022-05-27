@@ -30,6 +30,7 @@ Vagrant.configure("2") do |config|
   # within the machine from a port on the host machine and only allow access
   # via 127.0.0.1 to disable public access
   config.vm.network "forwarded_port", guest: 22, host: 2288, host_ip: "0.0.0.0"
+  config.vm.network "forwarded_port", guest: 8080, host: 8080, host_ip: "0.0.0.0"
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
@@ -60,7 +61,7 @@ Vagrant.configure("2") do |config|
   #   # Customize the amount of disk on the VM:
     vb.cpus = 2
     vb.memory = "4096"
-	config.disksize.size = '70GB'
+    config.disksize.size = '100GB'
   end
   #
   # View the documentation for the provider you are using for more
@@ -71,9 +72,9 @@ Vagrant.configure("2") do |config|
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
   
-    ########setting system information############### 
-    # this shell is excute by root user.
-    # change vagrant user password
+  ########setting system information############### 
+  # this shell is excute by root user.
+  # change vagrant user password
 	echo vagrant:123456 | chpasswd
 	echo root:123456 | chpasswd
 	echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
@@ -83,9 +84,9 @@ Vagrant.configure("2") do |config|
 	sudo timedatectl set-timezone Asia/Chongqing
 
 	###########setting oh my zsh################
-    # install net-tools zsh
-    apt-get update
-    apt-get install -y net-tools zsh curl tree
+  # install net-tools zsh
+  apt-get update
+  apt-get install -y net-tools zsh curl tree neofetch openjdk-11-jdk maven
 	# install oh-my-zsh from github and install some useful plugins.
 	yes | sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
@@ -97,6 +98,7 @@ Vagrant.configure("2") do |config|
 	sed -i 's/robbyrussell/amuse/g' /root/.zshrc
 	echo "export EDITOR='vim'" >> /root/.zshrc
 	echo "export VISUAL='vim'" >> /root/.zshrc
+  echo "neofetch" >> /root/.zshrc
 	
 	#############install docker-ce and docker-compose ########################
 	# install latest docker-ce on ubuntu
