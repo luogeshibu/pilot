@@ -1,4 +1,5 @@
 #!/bin/bash
+###This shell script is for root user. you should have root permission.
 
 #echo root:1347808093Shibu | chpasswd
 #echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
@@ -17,6 +18,8 @@ apt-get install -y net-tools zsh curl tree neofetch git
 #git config --global user.name "luogeshibu"
 #git config --global user.email "luogeshibu@gmail.com"
 
+#clean old configurtion.
+cd ; rm -rf .oh-my-zsh/ ;  rm -rf .zshrc
 # install oh-my-zsh from github and install some useful plugins.
 yes | sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
