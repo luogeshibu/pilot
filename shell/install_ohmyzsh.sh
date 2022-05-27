@@ -10,7 +10,7 @@
 ###########setting oh my zsh################
 # install net-tools zsh
 apt-get update
-apt-get install -y net-tools zsh curl tree neofetch openjdk-11-jdk maven git
+apt-get install -y net-tools zsh curl tree neofetch git
 
 #setting git config
 git config --global user.name "luogeshibu"
