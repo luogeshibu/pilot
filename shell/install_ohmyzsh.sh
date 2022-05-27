@@ -6,11 +6,13 @@ if [ `id -u` != "0" ]; then
 fi
 
 # check your system...
-if [ $(command -v apt-get) ]; then
+if [ $(command -v apt-get) ]
+then
   # install net-tools zsh
   apt-get update
   apt-get install -y net-tools zsh curl tree git
-elif
+elif [ $(ccommand -v yum) ]
+then
   # install net-tools zsh
   yum update
   yum -y install net-tools zsh curl tree git
