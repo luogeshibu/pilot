@@ -11,7 +11,7 @@ then
   # install net-tools zsh
   apt-get update
   apt-get install -y net-tools zsh curl tree git
-elif [ $(ccommand -v yum) ]
+elif [ $(command -v yum) ]
 then
   # install net-tools zsh
   yum update
