@@ -9,11 +9,11 @@ fi
 if [ $(command -v apt-get) ]; then
   # install net-tools zsh
   apt-get update
-  apt-get install -y net-tools zsh curl tree neofetch git
+  apt-get install -y net-tools zsh curl tree git
 elif
   # install net-tools zsh
   yum update
-  yum -y install net-tools zsh curl tree neofetch git
+  yum -y install net-tools zsh curl tree git
 else
   echo -e " 
   This shell script is not working on your system. (-_-) 
@@ -50,7 +50,7 @@ sed -i 's/(git)/(git zsh-autosuggestions  zsh-syntax-highlighting)/g' /root/.zsh
 sed -i 's/robbyrussell/amuse/g' /root/.zshrc
 echo "export EDITOR='vim'" >> /root/.zshrc
 echo "export VISUAL='vim'" >> /root/.zshrc
-echo "neofetch" >> /root/.zshrc
+#echo "neofetch" >> /root/.zshrc
 
 # change default shell from bash to zsh.
 chsh -s $(which zsh)
