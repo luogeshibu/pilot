@@ -40,19 +40,20 @@ fi
 #git config --global user.name "luogeshibu"
 #git config --global user.email "luogeshibu@gmail.com"
 
+###########################only use this other user#############################################3
 #clean old configurtion.
-cd ; rm -rf .oh-my-zsh/ ;  rm -rf .zshrc
+cd ; rm -rf .oh-my-zsh/ ;  rm -rf ./.zshrc
 # install oh-my-zsh from github and install some useful plugins.
 yes | sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
 # setting .zshrc file default values
-sed -i 's/(git)/(git zsh-autosuggestions  zsh-syntax-highlighting)/g' /root/.zshrc
-sed -i 's/robbyrussell/amuse/g' /root/.zshrc
-echo "export EDITOR='vim'" >> /root/.zshrc
-echo "export VISUAL='vim'" >> /root/.zshrc
-#echo "neofetch" >> /root/.zshrc
+sed -i 's/(git)/(git zsh-autosuggestions  zsh-syntax-highlighting)/g' ./.zshrc
+sed -i 's/robbyrussell/amuse/g' ./.zshrc
+echo "export EDITOR='vim'" >> ./.zshrc
+echo "export VISUAL='vim'" >> ./.zshrc
+#echo "neofetch" >> ./.zshrc
 
 # change default shell from bash to zsh.
 chsh -s $(which zsh)
