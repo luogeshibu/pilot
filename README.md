@@ -1,8 +1,7 @@
 this is tony repository.
 
+Author: Luogeshibu
 
 luogeshibu@gmail.com
 
-vagrant file backup.
- 
-shell script backup.
+some tiny shell script for automation task.
