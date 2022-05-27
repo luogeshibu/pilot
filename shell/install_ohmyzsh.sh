@@ -12,6 +12,7 @@
 apt-get update
 apt-get install -y net-tools zsh curl tree neofetch git
 
+[ $? -ne 0 ] && echo "your apt source list is right or not? can not install stuff." && exit 1
 #setting git config
 #git config --global user.name "luogeshibu"
 #git config --global user.email "luogeshibu@gmail.com"
