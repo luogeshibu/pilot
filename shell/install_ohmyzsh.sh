@@ -14,7 +14,7 @@ then
 elif [ $(command -v yum) ]
 then
   # install net-tools zsh
-  yum update
+  yum -y update
   yum -y install net-tools zsh curl tree git
 else
   echo -e " 
