@@ -13,8 +13,8 @@ apt-get update
 apt-get install -y net-tools zsh curl tree neofetch git
 
 #setting git config
-git config --global user.name "luogeshibu"
-git config --global user.email "luogeshibu@gmail.com"
+#git config --global user.name "luogeshibu"
+#git config --global user.email "luogeshibu@gmail.com"
 
 # install oh-my-zsh from github and install some useful plugins.
 yes | sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
