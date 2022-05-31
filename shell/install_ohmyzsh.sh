@@ -56,4 +56,4 @@ echo "export VISUAL='vim'" >> ./.zshrc
 #echo "neofetch" >> ./.zshrc
 
 # change default shell from bash to zsh.
-chsh -s $(which zsh)
+# chsh -s $(which zsh)  #Warning: manual execute this command.
