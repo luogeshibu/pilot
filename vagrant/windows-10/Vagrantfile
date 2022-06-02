@@ -55,13 +55,14 @@ Vagrant.configure("2") do |config|
     # Customize the amount of memory on the VM:
     vb.cpus = 4
     vb.memory = "16384"
-    vb.name = "myvm"
+    
+    #vb.name = "myvm"
     #######https://realworlditblog.wordpress.com/2016/09/23/vagrant-tricks-add-extra-disk-to-box/
-    file_to_disk = "mydisk.vmdk"
-    unless File.exist?(file_to_disk)
-      vb.customize [ "createmedium", "disk", "--filename", "mydisk.vmdk", "--format", "vmdk", "--size", 1024 * 10 ]
-    end
-    vb.customize [ "storageattach", "myvm" , "--storagectl", "IDE Controller", "--port", "1", "--device", "0", "--type", "hdd", "--medium", file_to_disk]
+    #file_to_disk = "mydisk.vmdk"
+    #unless File.exist?(file_to_disk)
+    #  vb.customize [ "createmedium", "disk", "--filename", "mydisk.vmdk", "--format", "vmdk", "--size", 1024 * 10 ]
+    #end
+    #vb.customize [ "storageattach", "myvm" , "--storagectl", "IDE Controller", "--port", "1", "--device", "0", "--type", "hdd", "--medium", file_to_disk]
 
     #######https://everythingshouldbevirtual.com/virtualization/vagrant-adding-a-second-hard-drive/
     unless File.exist?('./secondDisk.vdi')
