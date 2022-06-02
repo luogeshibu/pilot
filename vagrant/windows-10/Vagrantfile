@@ -49,30 +49,26 @@ Vagrant.configure("2") do |config|
   # backing providers for Vagrant. These expose provider-specific options.
   # Example for VirtualBox:
 
-
   config.vm.provider "virtualbox" do |vb|
   #   # Display the VirtualBox GUI when booting the machine
   #   vb.gui = true
+    # Customize the amount of memory on the VM:
+    vb.cpus = 4
+    vb.memory = "16384"
     vb.name = "myvm"
+    #######https://realworlditblog.wordpress.com/2016/09/23/vagrant-tricks-add-extra-disk-to-box/
     file_to_disk = "mydisk.vmdk"
     unless File.exist?(file_to_disk)
       vb.customize [ "createmedium", "disk", "--filename", "mydisk.vmdk", "--format", "vmdk", "--size", 1024 * 10 ]
     end
     vb.customize [ "storageattach", "myvm" , "--storagectl", "IDE Controller", "--port", "1", "--device", "0", "--type", "hdd", "--medium", file_to_disk]
 
-
-
-
-
-
+    #######https://everythingshouldbevirtual.com/virtualization/vagrant-adding-a-second-hard-drive/
     unless File.exist?('./secondDisk.vdi')
       vb.customize ['createhd', '--filename', './secondDisk.vdi', '--variant', 'Fixed', '--size', 100 * 1024]
     end
     vb.customize ['storageattach', :id,  '--storagectl', 'SATA Controller', '--port', 1, '--device', 0, '--type', 'hdd', '--medium', './secondDisk.vdi']
-  #   # Customize the amount of memory on the VM:
-    vb.cpus = 4
-    vb.memory = "16384"
-    #config.disksize.size = '200GB'
+
   end
   #
   # View the documentation for the provider you are using for more
