@@ -121,7 +121,7 @@ EOT
 
     # setting .zshrc file default values
     sed -i 's/(git)/(git zsh-autosuggestions  zsh-syntax-highlighting)/g' /root/.zshrc
-    sed -i 's/robbyrussell/amuse/g' /root/.zshrc
+    sed -i 's/robbyrussell/aussiegeek/g' /root/.zshrc
     echo "export EDITOR='vim'" >> /root/.zshrc
     echo "export VISUAL='vim'" >> /root/.zshrc
     echo "neofetch" >> /root/.zshrc
