@@ -1,7 +1,7 @@
-this is tony repository.
+This is tony repository.
 
 Author: Luogeshibu
 
 luogeshibu@gmail.com
 
-some tiny shell script for automation task.
+Some tiny shell script for automation task.
