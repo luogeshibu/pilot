@@ -10,7 +10,7 @@ if [ $(command -v apt-get) ]
 then
   # install net-tools zsh
   apt-get update
-  apt-get install -y net-tools zsh curl tree git
+  apt-get install -y net-tools zsh curl tree git vim
 elif [ $(command -v yum) ]
 then
   # install net-tools zsh
@@ -50,7 +50,7 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 
 # setting .zshrc file default values
 sed -i 's/(git)/(git zsh-autosuggestions  zsh-syntax-highlighting)/g' ./.zshrc
-sed -i 's/robbyrussell/bira/g' ./.zshrc
+sed -i 's/robbyrussell/aussiegeek/g' ./.zshrc
 echo "export EDITOR='vim'" >> ./.zshrc
 echo "export VISUAL='vim'" >> ./.zshrc
 #echo "neofetch" >> ./.zshrc
