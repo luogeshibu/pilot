@@ -11,4 +11,3 @@ you should install vagrant and virtualbox on your windows host. I am using windo
 wget https://raw.githubusercontent.com/luogeshibu/pilot/dev/vagrant/ubuntu-20.04/Vagrantfile.
 vagrant/ubuntu-20.04 is ubuntu server. I am in china , so I use aliyun.com source.
 
-done
