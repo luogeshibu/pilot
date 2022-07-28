@@ -14,6 +14,26 @@ systemctl restart sshd
 yum update
 yum -y install git wget net-tools vim curl zsh 
 
+#Install Docker Engine on CentOS
+sudo yum remove docker \
+                  docker-client \
+                  docker-client-latest \
+                  docker-common \
+                  docker-latest \
+                  docker-latest-logrotate \
+                  docker-logrotate \
+                  docker-engine
+
+sudo yum install -y yum-utils
+
+sudo yum-config-manager \
+    --add-repo \
+    https://download.docker.com/linux/centos/docker-ce.repo
+
+sudo yum -y install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+
+sudo systemctl start docker
+
 ###########setting oh my zsh################
 
 [ $? -ne 0 ] && echo "your linux repo setting is right or not? can not install stuff." && exit 3
