@@ -12,7 +12,7 @@ systemctl restart sshd
 
 #install some tools
 yum update
-yum -y install wget net-tools vim curl zsh 
+yum -y install git wget net-tools vim curl zsh 
 
 ###########setting oh my zsh################
 
