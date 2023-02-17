@@ -58,3 +58,7 @@ echo "export VISUAL='vim'" >> ./.zshrc
 
 # change default shell from bash to zsh.
 #chsh -s $(which zsh) #Warning: manual execute this command.
+
+
+# manually execute for this command.
+# lvextend -L +30G /dev/ubuntu-vg/ubuntu-lv && resize2fs /dev/ubuntu-vg/ubuntu-lv

@@ -13,24 +13,24 @@ systemctl restart sshd
 # setting system time zone
 sudo timedatectl set-timezone Asia/Chongqing
 
-# seting sources.list content with aliyun.com
-cat > /etc/apt/sources.list <<EOF
-deb http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse
-deb-src http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse
-
-deb http://mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse
-deb-src http://mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse
-
-deb http://mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse
-deb-src http://mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse
-
-# deb http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse
-# deb-src http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse
-
-deb http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse
-deb-src http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse
-EOF
-
+## seting sources.list content with aliyun.com
+#cat > /etc/apt/sources.list <<EOF
+#deb http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse
+#deb-src http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse
+#
+#deb http://mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse
+#deb-src http://mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse
+#
+#deb http://mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse
+#deb-src http://mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse
+#
+## deb http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse
+## deb-src http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse
+#
+#deb http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse
+#deb-src http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse
+#EOF
+#
 ###########setting oh my zsh################
 # install net-tools zsh
 apt-get update
@@ -41,7 +41,7 @@ git config --global user.name "luogeshibu"
 git config --global user.email "luogeshibu@gmail.com"
 
 # install oh-my-zsh from github and install some useful plugins.
-yes | sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
@@ -72,13 +72,11 @@ $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev
 apt-get update
 apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
 
-# install docker-compose
-curl -SL https://github.com/docker/compose/releases/download/v2.5.0/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
-
 #install gh , github login software
 curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
 sudo apt update
 sudo apt install gh
 
+#
+lvextend -L +30G /dev/ubuntu-vg/ubuntu-lv && resize2fs /dev/ubuntu-vg/ubuntu-lv
