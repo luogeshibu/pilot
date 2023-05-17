@@ -67,6 +67,7 @@ Vagrant.configure("2") do |config|
   #   # Customize the amount of disk on the VM:
     vb.cpus = 2
     vb.memory = "4096"
+    vb.gui = true
     #config.disksize.size = '100GB'  #vagrant plugin install vagrant-disksize
   end
   #
